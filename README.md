@@ -51,6 +51,16 @@ Or, without Git: run `npm run build` and drag the `dist/` folder onto [app.netli
 
 No environment variables or secrets are needed on any host.
 
+### Search engines and link previews
+`index.html` includes a search description, a canonical URL, structured data, and Open Graph/Twitter tags with a 1200×630 preview image (`public/og-image.png`). `public/sitemap.xml` lists the home page.
+
+To get listed on Google:
+1. Open [Google Search Console](https://search.google.com/search-console), add a **URL prefix** property for `https://drumilrughaniijs-source.github.io/WhatIf-Lab/`, and choose the **HTML tag** verification method.
+2. Paste the `<meta name="google-site-verification" …>` tag at the marked spot in `index.html`, push, then click **Verify**.
+3. Under **Sitemaps**, submit `sitemap.xml`; then use **URL Inspection → Request indexing** on the home page.
+
+Notes: the canonical URL and preview links point to the GitHub Pages address, so update them in `index.html` and `public/sitemap.xml` if you move to another domain. A `robots.txt` is not included because search engines only read it from the domain root, which a GitHub Pages project site does not control. Because pages use `#/` URLs, search engines index the site as a single page.
+
 ---
 
 ## What's inside
